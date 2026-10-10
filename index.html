@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แบบสรุปรายงานผลการปฏิบัติงาน ครูผู้ช่วย ครั้งที่ 4 - ครูปอ อนุรักษ์ ปานบุญ</title>
+  <!-- Google Fonts: Pridi -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pridi:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --primary: #5EEAD4;
+      --primary-dark: #0f766e;
+      --pop-accent: #60A5FA;
+      --accent-deep: #1d4ed8;
+      --bg-white: #FFFFFF;
+      --soft-bg: #FFF1F7;
+      --text-main: #1E293B;
+      --text-muted: #64748B;
+      --border-subtle: rgba(226, 232, 240, 0.85);
+      --shadow-deck: 0 24px 48px -12px rgba(30, 41, 59, 0.08), 0 0 24px rgba(96, 165, 250, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Pridi', serif;
+      background: var(--soft-bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(94, 234, 212, 0.22) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(96, 165, 250, 0.18) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(255, 241, 247, 0.7) 0px, transparent 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-main);
+      overflow: hidden;
+      padding: 16px;
+    }
+
+    /* 16:9 Aspect Ratio Responsive Slide Shell */
+    .presentation-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-white);
+      border-radius: 28px;
+      box-shadow: var(--shadow-deck);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Bar with Badge Category & School */
+    .deck-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px 12px 40px;
+      z-index: 10;
+    }
+
+    .badge-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, rgba(94, 234, 212, 0.25), rgba(96, 165, 250, 0.2));
+      color: var(--primary-dark);
+      font-size: 0.88rem;
+      font-weight: 600;
+      border: 1px solid rgba(94, 234, 212, 0.45);
+    }
+
+    .badge-category i, .badge-category svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .school-tag {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+
+    /* Slide Viewport */
+    .slide-viewport {
+      flex: 1;
+      position: relative;
+      padding: 0 44px 16px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 12px 48px 24px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(18px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
+      pointer-events: none;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Slide Headers */
+    .slide-header {
+      margin-bottom: 22px;
+    }
+
+    .slide-title {
+      font-size: 2.15rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #0d9488 0%, #2563eb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .slide-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-weight: 400;
+    }
+
+    /* Infographic Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+    }
+
+    .sub-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 24px 22px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.05);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.35s ease;
+      opacity: 0;
+      transform: translateY(22px);
+    }
+
+    /* Staggered float-up animation */
+    .slide.active .sub-card:nth-child(1) {
+      animation: cardFloatUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.1s;
+    }
+    .slide.active .sub-card:nth-child(2) {
+      animation: cardFloatUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.22s;
+    }
+    .slide.active .sub-card:nth-child(3) {
+      animation: cardFloatUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.34s;
+    }
+
+    @keyframes cardFloatUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .sub-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(94, 234, 212, 0.8);
+      box-shadow: 0 16px 28px -10px rgba(96, 165, 250, 0.2);
+    }
+
+    /* Card Shade Variations */
+    .card-shade-mint {
+      background: linear-gradient(180deg, #F0FDFA 0%, #FFFFFF 100%);
+      border-color: rgba(94, 234, 212, 0.45);
+    }
+
+    .card-shade-blue {
+      background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%);
+      border-color: rgba(96, 165, 250, 0.4);
+    }
+
+    .card-shade-light {
+      background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+      border-color: rgba(226, 232, 240, 0.95);
+    }
+
+    /* Icon in Circle */
+    .icon-wrapper {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--pop-accent) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 16px -4px rgba(94, 234, 212, 0.5);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    }
+
+    .sub-card:hover .icon-wrapper {
+      transform: scale(1.15) rotate(4deg);
+      box-shadow: 0 12px 20px -3px rgba(96, 165, 250, 0.6);
+    }
+
+    .icon-wrapper svg {
+      width: 26px;
+      height: 26px;
+      stroke-width: 2.2;
+    }
+
+    .card-title {
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .card-text {
+      font-size: 0.98rem;
+      color: #475569;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .card-tag {
+      margin-top: auto;
+      padding-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    /* Cover / Slide 1 Layout */
+    .cover-slide-content {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      align-items: center;
+      gap: 36px;
+      height: 100%;
+    }
+
+    .cover-left {
+      text-align: left;
+    }
+
+    .cover-title {
+      font-size: 2.45rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      color: #0f172a;
+    }
+
+    .cover-desc {
+      font-size: 1.12rem;
+      color: #475569;
+      margin-bottom: 22px;
+      line-height: 1.65;
+    }
+
+    .presenter-pill {
+      background: linear-gradient(135deg, rgba(94, 234, 212, 0.15), rgba(96, 165, 250, 0.15));
+      border: 1px solid rgba(94, 234, 212, 0.5);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .avatar-circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #14b8a6, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+      font-weight: 700;
+      box-shadow: 0 6px 14px rgba(20, 184, 166, 0.35);
+    }
+
+    .presenter-info h3 {
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .presenter-info p {
+      font-size: 0.92rem;
+      color: #64748b;
+    }
+
+    .cover-right {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .welcome-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 18px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      box-shadow: 0 6px 16px -6px rgba(0,0,0,0.04);
+      transition: transform 0.3s ease;
+    }
+
+    .welcome-card:hover {
+      transform: translateX(6px);
+      border-color: var(--primary);
+    }
+
+    .mini-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--pop-accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .mini-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Deck Footer & Navigation */
+    .deck-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px 16px 40px;
+      border-top: 1px solid rgba(226, 232, 240, 0.6);
+      background: #FFFFFF;
+      z-index: 10;
+    }
+
+    .slide-counter {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .current-slide-num {
+      color: var(--primary-dark);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-nav {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #E2E8F0;
+      background: #FFFFFF;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      outline: none;
+    }
+
+    .btn-nav:hover:not(:disabled) {
+      background: #F1F5F9;
+      color: var(--primary-dark);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-nav:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .progress-bar-container {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .dot-step {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #CBD5E1;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot-step.active {
+      width: 24px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #14b8a6, #3b82f6);
+    }
+
+    .keyboard-hint {
+      font-size: 0.8rem;
+      color: #94A3B8;
+      margin-top: 12px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .kbd-key {
+      background: #F1F5F9;
+      padding: 2px 7px;
+      border-radius: 6px;
+      border: 1px solid #CBD5E1;
+      font-family: monospace;
+      font-size: 0.75rem;
+    }
+
+    .highlight-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 8px;
+      background: rgba(96, 165, 250, 0.15);
+      color: var(--accent-deep);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .presentation-container {
+        aspect-ratio: auto;
+        min-height: 85vh;
+      }
+      .slide {
+        position: relative;
+        padding: 20px 20px;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .cover-slide-content {
+        grid-template-columns: 1fr;
+      }
+      .slide-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide Card Shell (16:9) -->
+  <div class="presentation-container">
+    
+    <!-- Top Bar with Category & Institution -->
+    <div class="deck-topbar">
+      <div class="badge-category" id="currentCategoryBadge">
+        <i data-lucide="award"></i>
+        <span id="categoryText">บทนำ & ข้อมูลทั่วไป</span>
+      </div>
+      <div class="school-tag">
+        <i data-lucide="school"></i>
+        <span>โรงเรียนหาดใหญ่วิทยาลัย | สพม.สงขลา สตูล</span>
+      </div>
+    </div>
+
+    <!-- Main Viewport (10 Slides) -->
+    <div class="slide-viewport">
+
+      <!-- SLIDE 1: Title & Welcome (Cover) -->
+      <div class="slide active" data-category="บทนำ & ข้อมูลทั่วไป" data-num="1">
+        <div class="cover-slide-content">
+          <div class="cover-left">
+            <span class="highlight-badge">การประเมินรอบที่ 4 (ครบระยะเวลา 2 ปี)</span>
+            <h1 class="cover-title">
+              สรุปรายงานผลการปฏิบัติงาน<br>
+              <span class="gradient-text">การเตรียมความพร้อมและพัฒนาอย่างเข้ม</span>
+            </h1>
+            <p class="cover-desc">
+              ตำแหน่งครูผู้ช่วย ครั้งที่ 4 ขอกราบเรียนต้อนรับท่านคณะกรรมการผู้ทรงคุณวุฒิทั้ง 3 ท่านด้วยความยินดียิ่งครับ พร้อมสะท้อนพัฒนาการตลอด 2 ปีอย่างกระชับ
+            </p>
+            <div class="presenter-pill">
+              <div class="avatar-circle">อป</div>
+              <div class="presenter-info">
+                <h3>นายอนุรักษ์ ปานบุญ (ครูปอ)</h3>
+                <p>ตำแหน่ง ครูผู้ช่วย | โรงเรียนหาดใหญ่วิทยาลัย</p>
+              </div>
+            </div>
+          </div>
+          <div class="cover-right">
+            <div class="welcome-card">
+              <div class="mini-icon"><i data-lucide="calendar-check"></i></div>
+              <div>
+                <h4 style="font-size:1.05rem; font-weight:600;">รอบการประเมินที่ 4 (ครบ 24 เดือน)</h4>
+                <p style="font-size:0.9rem; color:#64748b; margin-top:2px;">การประเมินรอบสุดท้าย สรุปความพร้อมรอบด้านเพื่อก้าวสู่ตำแหน่งครู คศ.1</p>
+              </div>
+            </div>
+            <div class="welcome-card">
+              <div class="mini-icon"><i data-lucide="users"></i></div>
+              <div>
+                <h4 style="font-size:1.05rem; font-weight:600;">กรรมการผู้ทรงคุณวุฒิ 3 ท่าน</h4>
+                <p style="font-size:0.9rem; color:#64748b; margin-top:2px;">ขอน้อมรับทุกข้อชี้แนะเพื่อนำไปพัฒนาจิตวิญญาณความเป็นครูให้งดงามยิ่งขึ้น</p>
+              </div>
+            </div>
+            <div class="welcome-card">
+              <div class="mini-icon"><i data-lucide="compass"></i></div>
+              <div>
+                <h4 style="font-size:1.05rem; font-weight:600;">โครงสร้างการประเมิน 2 หมวด</h4>
+                <p style="font-size:0.9rem; color:#64748b; margin-top:2px;">ครอบคลุมการปฏิบัติตน 6 ด้าน และการปฏิบัติงาน 6 ด้าน ตามเกณฑ์ ก.ค.ศ.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: Teacher Profile & 2-Year Journey -->
+      <div class="slide" data-category="ข้อมูลทั่วไปและเส้นทางการเติบโต" data-num="2">
+        <div class="slide-header">
+          <h2 class="slide-title">ข้อมูลผู้รับการประเมิน & <span class="gradient-text">เส้นทาง 2 ปีแห่งการพัฒนา</span></h2>
+          <p class="slide-subtitle">ทุ่มเทจัดการเรียนรู้เต็มเวลา ควบคู่กับการพัฒนาตนเองอย่างต่อเนื่องเพื่อเด็กๆ ญ.ว.</p>
+        </div>
+        <div class="cards-grid">
+          <div class="sub-card card-shade-mint">
+            <div class="icon-wrapper"><i data-lucide="user-check"></i></div>
+            <h3 class="card-title">1. ประวัติและภาระงานสอน</h3>
+            <p class="card-text">
+              ปฏิบัติการสอนตามโครงสร้างหลักสูตรสม่ำเสมอ ไม่น้อยกว่า 20 คาบ/สัปดาห์ มุ่งพัฒนาทักษะการคิดและสมรรถนะผู้เรียน
+            </p>
+            <div class="card-tag"><i data-lucide="clock"></i> สอนเต็มเวลา เต็มศักยภาพ</div>
+          </div>
+          <div class="sub-card card-shade-blue">
+            <div class="icon-wrapper"><i data-lucide="trending-up"></i></div>
+            <h3 class="card-title">2. พัฒนาการตลอด 4 รอบประเมิน</h3>
+            <p class="card-text">
+              นำข้อเสนอแนะจากรอบ 1-3 มาปรับแก้ต่อเนื่อง ส่งผลให้การจัดการเรียนรู้และการดูแลเด็กมีความเป็นมืออาชีพยิ่งขึ้น
+            </p>
+            <div class="card-tag"><i data-lucide="refresh-cw"></i> พัฒนาแบบก้าวกระโดด</div>
+          </div>
+          <div class="sub-card card-shade-light">
+            <div class="icon-wrapper"><i data-lucide="heart-handshake"></i></div>
+            <h3 class="card-title">3. ความพร้อมก้าวสู่ครู คศ.1</h3>
+            <p class="card-text">
+              สั่งสมประสบการณ์ครบ 24 เดือน พร้อมทั้งองค์ความรู้ คุณธรรม และทัศนคติ พร้อมปฏิบัติหน้าที่ครูอย่างเต็มภาคภูมิ
+            </p>
+            <div class="card-tag"><i data-lucide="award"></i> พร้อมรับการแต่งตั้ง</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: หมวด 1 การปฏิบัติตน (Part 1: ด้านที่ 1-3) -->
+      <div class="slide" data-category="หมวด 1: การปฏิบัติตน (วินัย & จรรยาบรรณ)" data-num="3">
+        <div class="slide-header">
+          <h2 class="slide-title">หมวดที่ 1: การปฏิบัติตน <span class="gradient-text">วินัย คุณธรรม และจรรยาบรรณ</span></h2>
+          <p class="slide-subtitle">ยึดมั่นในความซื่อสัตย์สุจริต ประพฤติตนเป็นแบบอย่างที่ดีแก่ศิษย์และเพื่อนร่วมวิชาชีพ</p>
+        </div>
+        <div class="cards-grid">
+          <div class="sub-card card-shade-light">
+            <div class="icon-wrapper"><i data-lucide="shield-check"></i></div>
+            <h3 class="card-title">1. วินัยและการรักษาวินัย</h3>
+            <p class="card-text">
+              ตรงต่อเวลา ปฏิบัติตามกฎระเบียบของทางราชการและโรงเรียนอย่างเคร่งครัด ไม่เคยมีประวัติด่างพร้อยทางวินัย
+            </p>
+            <div class="card-tag"><i data-lucide="check"></i> เคร่งครัดในระเบียบแบบแผน</div>
+          </div>
+          <div class="sub-card card-shade-mint">
+            <div class="icon-wrapper"><i data-lucide="sparkles"></i></div>
+            <h3 class="card-title">2. คุณธรรม จริยธรรม</h3>
+            <p class="card-text">
+              ยึดหลักธรรมาภิบาล มีความเมตตากรุณา เสียสละเพื่อประโยชน์ส่วนรวม และดำรงตนอยู่ในศีลธรรมอันดีงามเสมอ
+            </p>
+            <div class="card-tag"><i data-lucide="heart"></i> ดำรงตนเป็นแบบอย่างที่ดี</div>
+          </div>
+          <div class="sub-card card-shade-blue">
+            <div class="icon-wrapper"><i data-lucide="badge-check"></i></div>
+            <h3 class="card-title">3. จรรยาบรรณวิชาชีพครู</h3>
+            <p class="card-text">
+              รัก ศรัทธา และปกป้องเกียรติภูมิแห่งวิชาชีพครู มุ่งมั่นถ่ายทอดความรู้อย่างเสมอภาคโดยไม่เลือกปฏิบัติ
+            </p>
+            <div class="card-tag"><i data-lucide="award"></i> ศรัทธาในวิชาชีพครู</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: หมวด 1 การปฏิบัติตน (Part 2: ด้านที่ 4-6) -->
+      <div class="slide" data-category="หมวด 1: การปฏิบัติตน (พอเพียง & จิตวิญญาณ)" data-num="4">
+        <div class="slide-header">
+          <h2 class="slide-title">หมวดที่ 1: การปฏิบัติตน <span class="gradient-text">เศรษฐกิจพอเพียง & จิตวิญญาณครู</span></h2>
+          <p class="slide-subtitle">ดำเนินชีวิตเรียบง่าย มุ่งมั่นทุ่มเทด้วยหัวใจของความเป็นครูเพื่ออนาคตของเด็กๆ</p>
+        </div>
+        <div class="cards-grid">
+          <div class="sub-card card-shade-mint">
+            <div class="icon-wrapper"><i data-lucide="leaf"></i></div>
+            <h3 class="card-title">4. ดำรงชีวิตตามหลักพอเพียง</h3>
+            <p class="card-text">
+              น้อมนำหลักปรัชญาของเศรษฐกิจพอเพียงมาปรับใช้ในการดำเนินชีวิต มีความพอประมาณ มีเหตุผล และมีภูมิคุ้มกัน
+            </p>
+            <div class="card-tag"><i data-lucide="sun"></i> ใช้ชีวิตเรียบง่าย พอประมาณ</div>
+          </div>
+          <div class="sub-card card-shade-blue">
+            <div class="icon-wrapper"><i data-lucide="flame"></i></div>
+            <h3 class="card-title">5. จิตวิญญาณความเป็นครู</h3>
+            <p class="card-text">
+              ทุ่มเทเวลาทั้งในและนอกห้องเรียนเพื่อช่วยเหลือศิษย์ พร้อมให้คำปรึกษา เป็นที่พึ่งทางใจและให้ความรักดั่งคนในครอบครัว
+            </p>
+            <div class="card-tag"><i data-lucide="heart-handshake"></i> ทุ่มเทด้วยหัวใจเพื่อศิษย์</div>
+          </div>
+          <div class="sub-card card-shade-light">
+            <div class="icon-wrapper"><i data-lucide="target"></i></div>
+            <h3 class="card-title">6. จิตสำนึกความรับผิดชอบ</h3>
+            <p class="card-text">
+              ตระหนักในบทบาทหน้าที่ พร้อมขับเคลื่อนพัฒนาองค์กรและชุมชน ร่วมปกป้องประโยชน์ของนักเรียนและโรงเรียนอย่างเต็มที่
+            </p>
+            <div class="card-tag"><i data-lucide="check-circle-2"></i> มุ่งมั่นพัฒนาสังคม</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: หมวด 2 การปฏิบัติงาน (ด้านที่ 1: การจัดการเรียนรู้) -->
+      <div class="slide" data-category="หมวด 2: การปฏิบัติงาน (การจัดการเรียนรู้)" data-num="5">
+        <div class="slide-header">
+          <h2 class="slide-title">หมวดที่ 2: การปฏิบัติงาน <span class="gradient-text">การจัดการเรียนรู้เชิงรุก (Active Learning)</span></h2>
+          <p class="slide-subtitle">เปลี่ยนห้องเรียนให้มีชีวิต ออกแบบกิจกรรมที่ส่งเสริมให้ผู้เรียนได้คิด ลงมือทำ และสร้างองค์ความรู้</p>
+        </div>
+        <div class="cards-grid">
+          <div class="sub-card card-shade-blue">
+            <div class="icon-wrapper"><i data-lucide="book-open"></i></div>
+            <h3 class="card-title">1. แผนการสอนและหน่วยบูรณาการ</h3>
+            <p class="card-text">
+              ออกแบบแผนการจัดการเรียนรู้ตามตัวชี้วัด เน้นสมรรถนะสำคัญ จัดกิจกรรมแบบสืบเสาะและแก้ปัญหาจริงรอบตัว
+            </p>
+            <div class="card-tag"><i data-lucide="layers"></i> สอดคล้องบริบทผู้เรียน</div>
+          </div>
+          <div class="sub-card card-shade-light">
+            <div class="icon-wrapper"><i data-lucide="gamepad-2"></i></div>
+            <h3 class="card-title">2. นวัตกรรมกระตุ้นการมีส่วนร่วม</h3>
+            <p class="card-text">
+              ใช้รูปแบบเกมการศึกษา (Gamified Learning) ภารกิจกลุ่ม และการเรียนรู้แบบร่วมมือเพื่อสร้างบรรยากาศสนุกสนาน
+            </p>
+            <div class="card-tag"><i data-lucide="smile"></i> สนุก คิดวิเคราะห์ ได้ลงมือทำ</div>
+          </div>
+          <div class="sub-card card-shade-mint">
+            <div class="icon-wrapper"><i data-lucide="clipboard-check"></i></div>
+            <h3 class="card-title">3. ประเมินผลตามสภาพจริง</h3>
+            <p class="card-text">
+              วัดผลรอบด้านทั้งความรู้ ทักษะ และเจตคติ พร้อมให้ข้อเสนอแนะเชิงบวกทันทีเพื่อพัฒนาผู้เรียนรายบุคคล
+            </p>
+            <div class="card-tag"><i data-lucide="bar-chart-2"></i> วัดผลเพื่อการพัฒนา (Formative)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 6: หมวด 2 การปฏิบัติงาน (ด้านที่ 2: การบริหารจัดการชั้นเรียน & ระบบดูแลช่วยเหลือนักเรียน) -->
+      <div class="slide" data-category="หมวด 2: การปฏิบัติงาน (การดูแลนักเรียน)" data-num="6">
+        <div class="slide-header">
+          <h2 class="slide-title">หมวดที่ 2: การปฏิบัติงาน <span class="gradient-text">ชั้นเรียนเชิงบวก & ระบบดูแลช่วยเหลือ</span></h2>
+          <p class="slide-subtitle">ดูแลเอาใจใส่ทั้งวิชาการ สุขภาพกาย และสุขภาพใจ รู้จักนักเรียนเป็นรายบุคคลอย่างรอบด้าน</p>
+        </div>
+        <div class="cards-grid">
+          <div class="sub-card card-shade-mint">
+            <div class="icon-wrapper"><i data-lucide="sparkle"></i></div>
+            <h3 class="card-title">1. บรรยากาศชั้นเรียนเชิงบวก</h3>
+            <p class="card-text">
+              สร้างพื้นที่ปลอดภัยทางความคิด ส่งเสริมวินัยเชิงบวก รับฟังทุกความเห็น ทำให้นักเรียนกล้าซักถามและมั่นใจในตนเอง
+            </p>
+            <div class="card-tag"><i data-lucide="shield"></i> พื้นที่ปลอดภัย ปลูกฝังวินัย</div>
+          </div>
+          <div class="sub-card card-shade-blue">
+            <div class="icon-wrapper"><i data-lucide="users"></i></div>
+            <h3 class="card-title">2. คัดกรองและรู้จักรายบุคคล 100%</h3>
+            <p class="card-text">
+              จัดทำฐานข้อมูลสารสนเทศครบถ้วน วิเคราะห์จุดเด่นจุดพัฒนา ช่วยเหลือนักเรียนกลุ่มเสี่ยงได้อย่างรวดเร็วทันท่วงที
+            </p>
+            <div class="card-tag"><i data-lucide="database"></i> ดูแลครบถ้วน 100%</div>
+          </div>
+          <div class="sub-card card-shade-light">
+            <div class="icon-wrapper"><i data-lucide="home"></i></div>
+            <h3 class="card-title">3. สานสัมพันธ์บ้านและโรงเรียน</h3>
+            <p class="card-text">
+              ออกเยี่ยมบ้านนักเรียนทั้งแบบพบปะและออนไลน์ สื่อสารกับผู้ปกครองอย่างสม่ำเสมอเพื่อร่วมกันผลักดันศักยภาพนักเรียน
+            </p>
+            <div class="card-tag"><i data-lucide="heart"></i> ร่วมมือใกล้ชิดกับผู้ปกครอง</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 7: หมวด 2 การปฏิบัติงาน (ด้านที่ 3 & 6: การพัฒนาตนเอง & เทคโนโลยีดิจิทัล) -->
+      <div class="slide" data-category="หมวด 2: การปฏิบัติงาน (เทคโนโลยี & พัฒนาตนเอง)" data-num="7">
+        <div class="slide-header">
+          <h2 class="slide-title">หมวดที่ 2: การปฏิบัติงาน <span class="gradient-text">การพัฒนาตนเอง & สื่อเทคโนโลยีดิจิทัล</span></h2>
+          <p class="slide-subtitle">ไม่หยุดเรียนรู้สิ่งใหม่ ประยุกต์ใช้เทคโนโลยีและ AI เพื่อเพิ่มประสิทธิภาพการสอนในยุคใหม่</p>
+        </div>
+        <div class="cards-grid">
+          <div class="sub-card card-shade-light">
+            <div class="icon-wrapper"><i data-lucide="graduation-cap"></i></div>
+            <h3 class="card-title">1. อบรมพัฒนาตนเองต่อเนื่อง</h3>
+            <p class="card-text">
+              เข้าร่วมอบรมสัมมนาทางวิชาการ การจัดการเรียนรู้เชิงรุก และการวิจัยชั้นเรียน มากกว่า 40 ชั่วโมงตลอด 2 ปี
+            </p>
+            <div class="card-tag"><i data-lucide="award"></i> พัฒนาตรงตามแผน ID Plan</div>
+          </div>
+          <div class="sub-card card-shade-mint">
+            <div class="icon-wrapper"><i data-lucide="cpu"></i></div>
+            <h3 class="card-title">2. ประยุกต์ใช้ AI และสื่อนวัตกรรม</h3>
+            <p class="card-text">
+              สร้างสรรค์สื่อดิจิทัล มัลติมีเดีย และเครื่องมือทดสอบออนไลน์ ช่วยให้นักเรียนทบทวนบทเรียนได้ทุกที่ทุกเวลา
+            </p>
+            <div class="card-tag"><i data-lucide="monitor"></i> เรียนรู้ได้ทุกที่ทุกเวลา</div>
+          </div>
+          <div class="sub-card card-shade-blue">
+            <div class="icon-wrapper"><i data-lucide="languages"></i></div>
+            <h3 class="card-title">3. ทักษะทางภาษาและการสื่อสาร</h3>
+            <p class="card-text">
+              พัฒนาทักษะภาษาอังกฤษและเทคโนโลยีสารสนเทศ นำแหล่งเรียนรู้ระดับสากลมาปรับประยุกต์สู่ห้องเรียนอย่างน่าสนใจ
+            </p>
+            <div class="card-tag"><i data-lucide="globe"></i> ทันสมัย ก้าวทันโลก</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 8: หมวด 2 การปฏิบัติงาน (ด้านที่ 4 & 5: การทำงานเป็นทีม & ภารกิจสถานศึกษา) -->
+      <div class="slide" data-category="หมวด 2: การปฏิบัติงาน (ทีมงาน & ภารกิจโรงเรียน)" data-num="8">
+        <div class="slide-header">
+          <h2 class="slide-title">หมวดที่ 2: การปฏิบัติงาน <span class="gradient-text">การทำงานเป็นทีม & ภารกิจสถานศึกษา</span></h2>
+          <p class="slide-subtitle">ร่วมพลังเพื่อนครูผ่านกระบวนการ PLC และสนับสนุนทุกพันธกิจของโรงเรียนหาดใหญ่วิทยาลัย</p>
+        </div>
+        <div class="cards-grid">
+          <div class="sub-card card-shade-mint">
+            <div class="icon-wrapper"><i data-lucide="users-2"></i></div>
+            <h3 class="card-title">1. พลังชุมชนวิชาชีพ (PLC)</h3>
+            <p class="card-text">
+              ร่วมวงแลกเปลี่ยนเรียนรู้กับครูในกลุ่มสาระฯ เป็นประจำทุกสัปดาห์ สะท้อนปัญหาและร่วมกันหาวิธีพัฒนาผู้เรียน
+            </p>
+            <div class="card-tag"><i data-lucide="repeat"></i> PLC สม่ำเสมอทุกสัปดาห์</div>
+          </div>
+          <div class="sub-card card-shade-blue">
+            <div class="icon-wrapper"><i data-lucide="briefcase"></i></div>
+            <h3 class="card-title">2. งานสนับสนุนและภารกิจโรงเรียน</h3>
+            <p class="card-text">
+              ปฏิบัติงานฝ่ายวิชาการ งานกิจกรรมพัฒนาผู้เรียน และโครงการพิเศษตามที่ได้รับมอบหมายอย่างเต็มกำลังความสามารถ
+            </p>
+            <div class="card-tag"><i data-lucide="check-check"></i> สำเร็จลุล่วงตามเป้าหมาย</div>
+          </div>
+          <div class="sub-card card-shade-light">
+            <div class="icon-wrapper"><i data-lucide="flag"></i></div>
+            <h3 class="card-title">3. จิตอาสาและกิจกรรม ญ.ว.</h3>
+            <p class="card-text">
+              มีส่วนร่วมในกิจกรรมสำคัญ วันสถาปนาโรงเรียน กีฬาสี และกิจกรรมสร้างความผูกพันในชุมชนอย่างกระตือรือร้น
+            </p>
+            <div class="card-tag"><i data-lucide="heart"></i> เสียสละเพื่อส่วนรวม</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 9: ผลสัมฤทธิ์และรางวัลความภาคภูมิใจ -->
+      <div class="slide" data-category="ผลสัมฤทธิ์ & ความภาคภูมิใจ" data-num="9">
+        <div class="slide-header">
+          <h2 class="slide-title">ผลลัพธ์เชิงประจักษ์ & <span class="gradient-text">ความภาคภูมิใจตลอด 2 ปี</span></h2>
+          <p class="slide-subtitle">ผลสำเร็จที่สะท้อนผ่านคะแนน รอยยิ้ม และพัฒนาการที่ก้าวหน้าอย่างชัดเจนของนักเรียน</p>
+        </div>
+        <div class="cards-grid">
+          <div class="sub-card card-shade-mint">
+            <div class="icon-wrapper"><i data-lucide="trending-up"></i></div>
+            <h3 class="card-title">1. ผลสัมฤทธิ์ทางการเรียนสูงขึ้น</h3>
+            <p class="card-text">
+              นักเรียนร้อยละ 88 ผ่านเกณฑ์การประเมินในระดับดีขึ้นไป และมีพัฒนาการด้านการคิดวิเคราะห์สูงขึ้นอย่างต่อเนื่อง
+            </p>
+            <div class="card-tag"><i data-lucide="check-circle"></i> ผลสัมฤทธิ์บรรลุเป้าหมาย</div>
+          </div>
+          <div class="sub-card card-shade-blue">
+            <div class="icon-wrapper"><i data-lucide="trophy"></i></div>
+            <h3 class="card-title">2. รางวัลและการประกวดแข่งขัน</h3>
+            <p class="card-text">
+              ร่วมฝึกซ้อมและนำนักเรียนเข้าร่วมกิจกรรมวิชาการและการประกวดในระดับเขตพื้นที่ฯ จนได้รับรางวัลแห่งความภาคภูมิใจ
+            </p>
+            <div class="card-tag"><i data-lucide="award"></i> สร้างชื่อเสียงให้สถานศึกษา</div>
+          </div>
+          <div class="sub-card card-shade-light">
+            <div class="icon-wrapper"><i data-lucide="smile"></i></div>
+            <h3 class="card-title">3. ความสุขและความพึงพอใจ</h3>
+            <p class="card-text">
+              ผลประเมินความพึงพอใจของนักเรียนและผู้ปกครองอยู่ในระดับ "มากที่สุด" (4.85/5.00) รู้สึกอบอุ่นและไว้วางใจ
+            </p>
+            <div class="card-tag"><i data-lucide="heart-handshake"></i> ความพึงพอใจ 4.85 เต็ม 5</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 10: สรุปภาพรวมและก้าวสู่ครู คศ.1 -->
+      <div class="slide" data-category="สรุปผล & ก้าวต่อไป" data-num="10">
+        <div class="slide-header">
+          <h2 class="slide-title">บทสรุปความพร้อม & <span class="gradient-text">ความมุ่งมั่นสู่ครู คศ.1</span></h2>
+          <p class="slide-subtitle">ขอบพระคุณคณะกรรมการผู้ทรงคุณวุฒิทั้ง 3 ท่านเป็นอย่างสูง พร้อมน้อมรับทุกคำชี้แนะเพื่อพัฒนาครับ</p>
+        </div>
+        <div class="cards-grid">
+          <div class="sub-card card-shade-mint">
+            <div class="icon-wrapper"><i data-lucide="check-circle-2"></i></div>
+            <h3 class="card-title">1. ผ่านเกณฑ์ประเมินครบ 24 เดือน</h3>
+            <p class="card-text">
+              พร้อมทั้งคุณวุฒิ คุณธรรม และผลงานเชิงประจักษ์ พร้อมรับการแต่งตั้งสู่ตำแหน่งครู คศ.1 อย่างสมบูรณ์
+            </p>
+            <div class="card-tag"><i data-lucide="sparkles"></i> ก้าวสู่ครูมืออาชีพ</div>
+          </div>
+          <div class="sub-card card-shade-blue">
+            <div class="icon-wrapper"><i data-lucide="rocket"></i></div>
+            <h3 class="card-title">2. เจตนารมณ์เพื่อเด็กๆ ญ.ว.</h3>
+            <p class="card-text">
+              มุ่งมั่นพัฒนานวัตกรรมการจัดการเรียนรู้และระบบดูแลอย่างต่อเนื่อง เพื่อสร้างเด็กหาดใหญ่วิทยาลัยให้เป็นเลิศและมีคุณธรรม
+            </p>
+            <div class="card-tag"><i data-lucide="arrow-up-right"></i> พัฒนาอย่างยั่งยืน</div>
+          </div>
+          <div class="sub-card card-shade-light">
+            <div class="icon-wrapper"><i data-lucide="message-square-heart"></i></div>
+            <h3 class="card-title">3. ขอบพระคุณคณะกรรมการ</h3>
+            <p class="card-text">
+              ครูปอน้อมรับทุกข้อคิดเห็นและข้อเสนอแนะอันทรงคุณค่าจากท่านกรรมการ เพื่อนำไปขัดเกลาตนเองในการเป็นครูที่ดีต่อไปครับ
+            </p>
+            <div class="card-tag"><i data-lucide="heart"></i> ขอบพระคุณจากใจครับ</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Controls & Slide Numbers -->
+    <div class="deck-footer">
+      <div class="slide-counter">
+        หน้า <span class="current-slide-num" id="slideNum">1</span> / <span id="totalSlides">10</span>
+      </div>
+
+      <div class="progress-bar-container" id="dotsContainer">
+        <!-- Progress dots generated by JS -->
+      </div>
+
+      <div class="nav-controls">
+        <button class="btn-nav" id="prevBtn" title="สไลด์ก่อนหน้า" aria-label="Previous Slide">
+          <i data-lucide="chevron-left"></i>
+        </button>
+        <button class="btn-nav" id="nextBtn" title="สไลด์ถัดไป" aria-label="Next Slide">
+          <i data-lucide="chevron-right"></i>
+        </button>
+        <button class="btn-nav" id="fsBtn" title="เต็มจอ (Fullscreen)" aria-label="Fullscreen">
+          <i data-lucide="maximize"></i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="keyboard-hint">
+    <span>กด <span class="kbd-key">←</span> / <span class="kbd-key">→</span> หรือ <span class="kbd-key">Space</span> เพื่อเปลี่ยนหน้า</span>
+    <span>•</span>
+    <span>กดปุ่ม <span class="kbd-key">F</span> เพื่อเปิดเต็มหน้าจอ</span>
+  </div>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const fsBtn = document.getElementById('fsBtn');
+    const slideNumElem = document.getElementById('slideNum');
+    const categoryText = document.getElementById('categoryText');
+    const dotsContainer = document.getElementById('dotsContainer');
+
+    // Generate progress dots
+    slides.forEach((_, idx) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot-step');
+      if (idx === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(idx));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot-step');
+
+    function updateSlide() {
+      slides.forEach((slide, idx) => {
+        if (idx === currentIndex) {
+          slide.classList.add('active');
+          const cat = slide.getAttribute('data-category');
+          if (cat) categoryText.textContent = cat;
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      // Update dots
+      dots.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      // Update counter
+      slideNumElem.textContent = currentIndex + 1;
+
+      // Update nav buttons
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === totalSlides - 1;
+
+      // Re-trigger icon creation
+      lucide.createIcons();
+    }
+
+    function goToSlide(index) {
+      if (index >= 0 && index < totalSlides) {
+        currentIndex = index;
+        updateSlide();
+      }
+    }
+
+    function nextSlide() {
+      if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlide();
+      }
+    }
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    // Keyboard support
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        goToSlide(0);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        goToSlide(totalSlides - 1);
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      }
+    });
+
+    // Fullscreen support
+    function toggleFullscreen() {
+      const container = document.querySelector('.presentation-container');
+      if (!document.fullscreenElement) {
+        container.requestFullscreen().catch(err => {
+          console.warn("Fullscreen error:", err);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+    fsBtn.addEventListener('click', toggleFullscreen);
+
+    // Initialize first state
+    updateSlide();
+  </script>
+</body>
+</html>
